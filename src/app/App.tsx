@@ -63,8 +63,8 @@ const PROJECTS = [
       "Debugged server/client component boundaries and session-handling in App Router",
       "Deployed and iterated via Vercel CI/CD pipeline connected to GitHub",
     ],
-    live: "#",
-    repo: "#",
+    live: "https://travel-log-project-psi.vercel.app",
+    repo: "https://github.com/ayushsareen793",
   },
   {
     num: "02",
@@ -79,8 +79,8 @@ const PROJECTS = [
       "Integrated Razorpay for real-time payment processing with live UI feedback",
       "Validated all REST API endpoints with Postman before each deployment",
     ],
-    live: "#",
-    repo: "#",
+    live: "https://get-me-acoffee-a-creator-funding-pl.vercel.app",
+    repo: "https://github.com/ayushsareen793",
   },
 ];
 
@@ -250,13 +250,17 @@ export default function App() {
               <Mail size={15} /> Get In Touch
             </a>
             <a
-              href="#"
+              href="https://github.com/ayushsareen793"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace]"
             >
               <Github size={15} /> GitHub
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/ayushsareen0808"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace]"
             >
               <Linkedin size={15} /> LinkedIn
@@ -417,6 +421,8 @@ export default function App() {
                 <div className="flex gap-1 ml-4">
                   <a
                     href={p.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="p-2 text-[#52525b] hover:text-[#a78bfa] transition-colors"
                     aria-label="Live demo"
                   >
@@ -424,6 +430,8 @@ export default function App() {
                   </a>
                   <a
                     href={p.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="p-2 text-[#52525b] hover:text-[#a78bfa] transition-colors"
                     aria-label="GitHub repo"
                   >
@@ -530,13 +538,17 @@ export default function App() {
 
             <div className="flex flex-wrap gap-6">
               <a
-                href="#"
+                href="https://github.com/ayushsareen793"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-[#52525b] hover:text-[#a78bfa] transition-colors text-sm [font-family:'JetBrains_Mono',monospace]"
               >
                 <Github size={16} /> GitHub
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/ayushsareen0808"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-[#52525b] hover:text-[#a78bfa] transition-colors text-sm [font-family:'JetBrains_Mono',monospace]"
               >
                 <Linkedin size={16} /> LinkedIn
@@ -565,13 +577,26 @@ export default function App() {
             © 2025 Ayush Sareen · Designed & Built with React + Tailwind CSS
           </p>
           <div className="flex gap-4">
-            <a href="#" className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors">
+            <a
+              href="https://github.com/ayushsareen793"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors"
+            >
               <Github size={15} />
             </a>
-            <a href="#" className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors">
+            <a
+              href="https://www.linkedin.com/in/ayushsareen0808"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors"
+            >
               <Linkedin size={15} />
             </a>
-            <a href="mailto:ayushsareen793@gmail.com" className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors">
+            <a
+              href="mailto:ayushsareen793@gmail.com"
+              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors"
+            >
               <Mail size={15} />
             </a>
           </div>
