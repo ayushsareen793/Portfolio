@@ -233,7 +233,7 @@ export default function App() {
 
           <div className="[font-family:'JetBrains_Mono',monospace] text-[#a78bfa] text-base md:text-xl mb-7 flex items-center gap-3">
             <span className="text-[#7c3aed] text-xl">▮</span>
-            MERN Stack Developer
+            Aspiring Full Stack Developer
           </div>
 
           <p className="text-[#a1a1aa] text-base md:text-lg max-w-2xl leading-relaxed mb-10">
