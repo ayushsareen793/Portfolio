@@ -152,7 +152,6 @@ export default function App() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Fallback for older browsers
       const textarea = document.createElement("textarea");
       textarea.value = EMAIL;
       document.body.appendChild(textarea);
@@ -331,8 +330,8 @@ export default function App() {
               writing clean, maintainable code that ships reliably to production.
             </p>
             <p className="text-[#a1a1aa] leading-relaxed text-base">
-              Currently in my final year of B.Tech (CSE) at Greater Noida Institute of Technology (GGSIPU),
-              actively seeking full-time opportunities where I can build impactful products at scale.
+              B.Tech (CSE) graduate actively seeking full-time opportunities where I can build impactful
+              products at scale and contribute to production-grade systems.
             </p>
           </div>
           <div className="md:col-span-2 space-y-3">
@@ -506,9 +505,9 @@ export default function App() {
                 </span>
               </div>
               <h3 className="[font-family:'Chakra_Petch',sans-serif] text-2xl md:text-3xl font-bold text-[#fafafa] mb-2">
-                Greater Noida Institute of Technology
+                Bachelor of Technology
               </h3>
-              <p className="text-[#a1a1aa] text-sm">GGSIPU · Greater Noida, Uttar Pradesh, India</p>
+              <p className="text-[#a1a1aa] text-sm">Computer Science & Engineering</p>
             </div>
             <div className="md:text-right shrink-0">
               <div className="[font-family:'JetBrains_Mono',monospace] text-[#a78bfa] text-xs tracking-widest mb-2">
