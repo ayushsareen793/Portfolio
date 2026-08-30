@@ -17,6 +17,7 @@ import {
   BookOpen,
   Zap,
   GraduationCap,
+  Check,
 } from "lucide-react";
 
 const NAV_LINKS = ["About", "Skills", "Experience", "Projects", "Education", "Achievements", "Contact"];
@@ -107,6 +108,8 @@ const ACHIEVEMENTS = [
   },
 ];
 
+const EMAIL = "ayushsareen793@gmail.com";
+
 function SectionHeader({ num, title }: { num: string; title: string }) {
   return (
     <div className="flex items-center gap-4">
@@ -130,6 +133,7 @@ function SkillTag({ label }: { label: string }) {
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -142,11 +146,37 @@ export default function App() {
     setMenuOpen(false);
   };
 
+  const copyEmail = async (e: React.MouseEvent) => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback for older browsers
+      const textarea = document.createElement("textarea");
+      textarea.value = EMAIL;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
   return (
     <div
       className="min-h-screen bg-[#09090b] text-[#fafafa] overflow-x-hidden"
       style={{ fontFamily: "'DM Sans', sans-serif" }}
     >
+      {/* Toast Notification */}
+      {copied && (
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-2 px-5 py-3 bg-[#111115] border border-[#7c3aed] text-[#a78bfa] text-sm [font-family:'JetBrains_Mono',monospace] shadow-[0_0_20px_rgba(124,58,237,0.3)] animate-[fadeIn_0.3s_ease-out]">
+          <Check size={14} className="text-[#7c3aed]" />
+          Email copied to clipboard!
+        </div>
+      )}
+
       {/* Background grid */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
@@ -168,7 +198,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
           <button
             onClick={() => scrollTo("about")}
-            className="[font-family:'Chakra_Petch',sans-serif] font-bold text-xl tracking-widest text-[#a78bfa] hover:text-[#c4b5fd] transition-colors"
+            className="[font-family:'Chakra_Petch',sans-serif] font-bold text-xl tracking-widest text-[#a78bfa] hover:text-[#c4b5fd] transition-colors cursor-pointer"
           >
             AS
           </button>
@@ -179,7 +209,7 @@ export default function App() {
               <li key={link}>
                 <button
                   onClick={() => scrollTo(link)}
-                  className="text-xs text-[#71717a] hover:text-[#a78bfa] transition-colors tracking-widest uppercase [font-family:'JetBrains_Mono',monospace]"
+                  className="text-xs text-[#71717a] hover:text-[#a78bfa] transition-colors tracking-widest uppercase [font-family:'JetBrains_Mono',monospace] cursor-pointer"
                 >
                   {link}
                 </button>
@@ -189,7 +219,7 @@ export default function App() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-[#71717a] hover:text-[#a78bfa] transition-colors"
+            className="md:hidden text-[#71717a] hover:text-[#a78bfa] transition-colors cursor-pointer"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -205,7 +235,7 @@ export default function App() {
                 <li key={link}>
                   <button
                     onClick={() => scrollTo(link)}
-                    className="text-sm text-[#71717a] hover:text-[#a78bfa] transition-colors tracking-widest uppercase [font-family:'JetBrains_Mono',monospace]"
+                    className="text-sm text-[#71717a] hover:text-[#a78bfa] transition-colors tracking-widest uppercase [font-family:'JetBrains_Mono',monospace] cursor-pointer"
                   >
                     {link}
                   </button>
@@ -244,8 +274,9 @@ export default function App() {
 
           <div className="flex flex-wrap gap-3">
             <a
-              href="mailto:ayushsareen793@gmail.com"
-              className="flex items-center gap-2 px-6 py-3 bg-[#7c3aed] hover:bg-[#6d28d9] text-white transition-colors text-sm [font-family:'JetBrains_Mono',monospace]"
+              href={`mailto:${EMAIL}`}
+              onClick={copyEmail}
+              className="flex items-center gap-2 px-6 py-3 bg-[#7c3aed] hover:bg-[#6d28d9] text-white transition-colors text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
             >
               <Mail size={15} /> Get In Touch
             </a>
@@ -253,7 +284,7 @@ export default function App() {
               href="https://github.com/ayushsareen793"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace]"
+              className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
             >
               <Github size={15} /> GitHub
             </a>
@@ -261,7 +292,7 @@ export default function App() {
               href="https://www.linkedin.com/in/ayushsareen0808"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace]"
+              className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
             >
               <Linkedin size={15} /> LinkedIn
             </a>
@@ -275,7 +306,7 @@ export default function App() {
               <Phone size={13} className="text-[#7c3aed]" /> +91-8368158779
             </span>
             <span className="flex items-center gap-2">
-              <Mail size={13} className="text-[#7c3aed]" /> ayushsareen793@gmail.com
+              <Mail size={13} className="text-[#7c3aed]" /> {EMAIL}
             </span>
           </div>
         </div>
@@ -373,7 +404,7 @@ export default function App() {
             </h3>
             <a
               href="https://skillcrafttech.com"
-              className="text-[#a78bfa] text-sm hover:text-[#c4b5fd] transition-colors"
+              className="text-[#a78bfa] text-sm hover:text-[#c4b5fd] transition-colors cursor-pointer"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -423,7 +454,7 @@ export default function App() {
                     href={p.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 text-[#52525b] hover:text-[#a78bfa] transition-colors"
+                    className="p-2 text-[#52525b] hover:text-[#a78bfa] transition-colors cursor-pointer"
                     aria-label="Live demo"
                   >
                     <ExternalLink size={15} />
@@ -432,7 +463,7 @@ export default function App() {
                     href={p.repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 text-[#52525b] hover:text-[#a78bfa] transition-colors"
+                    className="p-2 text-[#52525b] hover:text-[#a78bfa] transition-colors cursor-pointer"
                     aria-label="GitHub repo"
                   >
                     <Github size={15} />
@@ -529,11 +560,12 @@ export default function App() {
             </p>
 
             <a
-              href="mailto:ayushsareen793@gmail.com"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#7c3aed] hover:bg-[#6d28d9] text-white transition-colors text-sm [font-family:'JetBrains_Mono',monospace] mb-12"
+              href={`mailto:${EMAIL}`}
+              onClick={copyEmail}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-[#7c3aed] hover:bg-[#6d28d9] text-white transition-colors text-sm [font-family:'JetBrains_Mono',monospace] mb-12 cursor-pointer"
             >
               <Mail size={16} />
-              ayushsareen793@gmail.com
+              {EMAIL}
             </a>
 
             <div className="flex flex-wrap gap-6">
@@ -541,7 +573,7 @@ export default function App() {
                 href="https://github.com/ayushsareen793"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#52525b] hover:text-[#a78bfa] transition-colors text-sm [font-family:'JetBrains_Mono',monospace]"
+                className="flex items-center gap-2 text-[#52525b] hover:text-[#a78bfa] transition-colors text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
               >
                 <Github size={16} /> GitHub
               </a>
@@ -549,13 +581,13 @@ export default function App() {
                 href="https://www.linkedin.com/in/ayushsareen0808"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#52525b] hover:text-[#a78bfa] transition-colors text-sm [font-family:'JetBrains_Mono',monospace]"
+                className="flex items-center gap-2 text-[#52525b] hover:text-[#a78bfa] transition-colors text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
               >
                 <Linkedin size={16} /> LinkedIn
               </a>
               <a
                 href="tel:+918368158779"
-                className="flex items-center gap-2 text-[#52525b] hover:text-[#a78bfa] transition-colors text-sm [font-family:'JetBrains_Mono',monospace]"
+                className="flex items-center gap-2 text-[#52525b] hover:text-[#a78bfa] transition-colors text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
               >
                 <Phone size={16} /> +91-8368158779
               </a>
@@ -581,7 +613,7 @@ export default function App() {
               href="https://github.com/ayushsareen793"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors"
+              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors cursor-pointer"
             >
               <Github size={15} />
             </a>
@@ -589,13 +621,14 @@ export default function App() {
               href="https://www.linkedin.com/in/ayushsareen0808"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors"
+              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors cursor-pointer"
             >
               <Linkedin size={15} />
             </a>
             <a
-              href="mailto:ayushsareen793@gmail.com"
-              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors"
+              href={`mailto:${EMAIL}`}
+              onClick={copyEmail}
+              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors cursor-pointer"
             >
               <Mail size={15} />
             </a>
