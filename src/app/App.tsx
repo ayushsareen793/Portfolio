@@ -407,4 +407,173 @@ export default function App() {
 
           <div className="pl-10 relative">
             {/* Dot */}
-            <div className="absolute left-0 top-1.5 w-[9px] h-[9px] rounded-full bg-[#7c3aed] shadow-[0_0_10px_rgba(124
+            <div className="absolute left-0 top-1.5 w-[9px] h-[9px] rounded-full bg-[#7c3aed] shadow-[0_0_10px_rgba(124,58,237,0.6)]" />
+
+            <div className="[font-family:'JetBrains_Mono',monospace] text-xs text-[#7c3aed] mb-2 tracking-wide">
+              Jul – Aug 2025
+            </div>
+            <h3 className="[font-family:'Chakra_Petch',sans-serif] text-xl font-semibold text-[#fafafa] mb-1">
+              Web Development Intern
+            </h3>
+            <div className="text-[#a78bfa] text-sm mb-4">SkillCraft Technology · Remote</div>
+            <ul className="space-y-3">
+              {[
+                "Built 3 vanilla JS (ES6+) apps: a stopwatch with event-driven DOM manipulation and state management, a landing page with CSS3 Flexbox, Grid and media queries, and a quiz app with real-time score tracking and localStorage persistence.",
+                "Wrote modular, reusable JavaScript functions and responsive CSS architectures that directly translated into faster React component design and cleaner Next.js page structures.",
+                "Debugged DOM state edge cases and timing bugs without framework abstractions, solidifying the underlying mechanics now applied to React state logic and Next.js App Router session handling.",
+              ].map((point, i) => (
+                <li key={i} className="flex gap-3 text-[#a1a1aa] text-sm leading-relaxed">
+                  <span className="text-[#7c3aed] mt-1">▸</span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PROJECTS ─── */}
+      <section id="projects" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
+        <SectionHeader num="03" title="Projects" />
+        <div className="mt-14 space-y-8">
+          {PROJECTS.map((project) => (
+            <div
+              key={project.num}
+              className="bg-[#111115] border border-[rgba(139,92,246,0.12)] hover:border-[rgba(139,92,246,0.38)] transition-all duration-300 p-8"
+            >
+              <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                <div>
+                  <span className="[font-family:'JetBrains_Mono',monospace] text-[#7c3aed] text-xs">
+                    {project.num}.
+                  </span>
+                  <h3 className="[font-family:'Chakra_Petch',sans-serif] text-2xl font-bold text-[#fafafa] mt-1">
+                    {project.name}
+                  </h3>
+                  <div className="text-[#a78bfa] text-sm mt-1">{project.subtitle}</div>
+                </div>
+                <div className="flex gap-3">
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-4 py-2 bg-[#7c3aed] hover:bg-[#6d28d9] text-white transition-colors text-xs [font-family:'JetBrains_Mono',monospace] cursor-pointer"
+                  >
+                    <ExternalLink size={13} /> Live Demo
+                  </a>
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-4 py-2 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] transition-all text-xs [font-family:'JetBrains_Mono',monospace] cursor-pointer"
+                  >
+                    <Github size={13} /> Repo
+                  </a>
+                </div>
+              </div>
+              <p className="text-[#a1a1aa] text-sm leading-relaxed mb-5">{project.description}</p>
+              <ul className="space-y-2 mb-5">
+                {project.points.map((point, i) => (
+                  <li key={i} className="flex gap-3 text-[#a1a1aa] text-sm leading-relaxed">
+                    <span className="text-[#7c3aed] mt-1">▸</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-2">
+                {project.stack.map((tech) => (
+                  <SkillTag key={tech} label={tech} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── EDUCATION ─── */}
+      <section id="education" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
+        <SectionHeader num="04" title="Education" />
+        <div className="mt-14 bg-[#111115] border border-[rgba(139,92,246,0.12)] p-8 flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+          <div className="w-12 h-12 flex items-center justify-center bg-[rgba(139,92,246,0.1)] shrink-0">
+            <GraduationCap size={22} className="text-[#a78bfa]" />
+          </div>
+          <div className="flex-1">
+            <h3 className="[font-family:'Chakra_Petch',sans-serif] text-xl font-semibold text-[#fafafa]">
+              Bachelor of Technology, Computer Science Engineering
+            </h3>
+            <div className="text-[#a78bfa] text-sm mt-1">
+              Greater Noida Institute of Technology (GGSIPU) · Greater Noida, India
+            </div>
+            <div className="[font-family:'JetBrains_Mono',monospace] text-xs text-[#71717a] mt-2">
+              Sept 2022 – June 2026
+            </div>
+          </div>
+          <div className="[font-family:'JetBrains_Mono',monospace] text-sm text-[#7c3aed] shrink-0">
+            CGPA: 7.88 / 10.0
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ACHIEVEMENTS ─── */}
+      <section id="achievements" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
+        <SectionHeader num="05" title="Achievements" />
+        <div className="grid sm:grid-cols-2 gap-4 mt-14">
+          {ACHIEVEMENTS.map(({ icon: Icon, title, desc }) => (
+            <div
+              key={title}
+              className="bg-[#111115] border border-[rgba(139,92,246,0.12)] hover:border-[rgba(139,92,246,0.38)] transition-all duration-300 p-6"
+            >
+              <div className="w-8 h-8 flex items-center justify-center bg-[rgba(139,92,246,0.1)] mb-4">
+                <Icon size={15} className="text-[#a78bfa]" />
+              </div>
+              <h3 className="[font-family:'Chakra_Petch',sans-serif] font-semibold text-sm text-[#e4e4e7] mb-2">
+                {title}
+              </h3>
+              <p className="text-[#a1a1aa] text-sm leading-relaxed">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── CONTACT ─── */}
+      <section id="contact" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
+        <SectionHeader num="06" title="Contact" />
+        <div className="mt-14 text-center max-w-xl mx-auto">
+          <p className="text-[#a1a1aa] text-base leading-relaxed mb-8">
+            Open to full-time opportunities and collaborations. Feel free to reach out — I usually reply within a
+            day.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <a
+              href={`mailto:${EMAIL}`}
+              onClick={copyEmail}
+              className="flex items-center gap-2 px-6 py-3 bg-[#7c3aed] hover:bg-[#6d28d9] text-white transition-colors text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
+            >
+              <Mail size={15} /> Get In Touch
+            </a>
+            <a
+              href="https://github.com/ayushsareen793"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
+            >
+              <Github size={15} /> GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ayushsareen0808"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
+            >
+              <Linkedin size={15} /> LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="relative z-10 py-8 px-6 border-t border-[rgba(139,92,246,0.1)] text-center [font-family:'JetBrains_Mono',monospace] text-xs text-[#52525b]">
+        © {new Date().getFullYear()} Ayush Sareen. Built with React &amp; Tailwind CSS.
+      </footer>
+    </div>
+  );
+}
