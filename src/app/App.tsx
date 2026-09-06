@@ -18,9 +18,10 @@ import {
   Zap,
   GraduationCap,
   Check,
+  FileText,
 } from "lucide-react";
 
-const NAV_LINKS = ["About", "Skills", "Experience", "Projects", "Education", "Achievements", "Contact"];
+const NAV_LINKS = ["About", "Skills", "Experience", "Projects", "Education", "Achievements", "Contact", "Resume"];
 
 const SKILL_CATEGORIES = [
   {
@@ -142,6 +143,11 @@ export default function App() {
   }, []);
 
   const scrollTo = (id: string) => {
+    if (id === "Resume") {
+      window.open("/resume.pdf", "_blank");
+      setMenuOpen(false);
+      return;
+    }
     document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   };
@@ -196,7 +202,7 @@ export default function App() {
       >
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
           <button
-            onClick={() => scrollTo("about")}
+            onClick={() => scrollTo("About")}
             className="[font-family:'Chakra_Petch',sans-serif] font-bold text-xl tracking-widest text-[#a78bfa] hover:text-[#c4b5fd] transition-colors cursor-pointer"
           >
             AS
@@ -294,6 +300,14 @@ export default function App() {
               className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
             >
               <Linkedin size={15} /> LinkedIn
+            </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
+            >
+              <FileText size={15} /> Resume
             </a>
           </div>
 
@@ -393,247 +407,4 @@ export default function App() {
 
           <div className="pl-10 relative">
             {/* Dot */}
-            <div className="absolute left-0 top-1.5 w-[9px] h-[9px] rounded-full bg-[#7c3aed] shadow-[0_0_10px_rgba(124,58,237,0.6)] -translate-x-[4px]" />
-
-            <div className="[font-family:'JetBrains_Mono',monospace] text-[#7c3aed] text-xs tracking-widest mb-2">
-              Jul 2025 – Aug 2025 · Remote
-            </div>
-            <h3 className="[font-family:'Chakra_Petch',sans-serif] text-2xl font-bold text-[#fafafa] mb-1">
-              Web Development Intern
-            </h3>
-            <a
-              href="https://skillcrafttech.com"
-              className="text-[#a78bfa] text-sm hover:text-[#c4b5fd] transition-colors cursor-pointer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              SkillCraft Technology ↗
-            </a>
-
-            <ul className="mt-6 space-y-4">
-              {[
-                "Developed event-driven interactive applications using vanilla JavaScript, applying DOM manipulation and state management patterns.",
-                "Built fully responsive landing pages with CSS Flexbox and media queries, ensuring cross-browser compatibility across mobile and desktop viewports.",
-                "Engineered a dynamic quiz application with real-time score tracking, conditional rendering, and local state persistence — concepts directly transferable to React state management.",
-              ].map((point, i) => (
-                <li key={i} className="flex gap-3 text-[#a1a1aa] text-sm leading-relaxed">
-                  <span className="text-[#7c3aed] mt-1 shrink-0 text-xs">▸</span>
-                  {point}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── PROJECTS ─── */}
-      <section id="projects" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
-        <SectionHeader num="03" title="Projects" />
-        <div className="grid md:grid-cols-2 gap-5 mt-14">
-          {PROJECTS.map((p) => (
-            <div
-              key={p.num}
-              className="bg-[#111115] border border-[rgba(139,92,246,0.12)] hover:border-[rgba(139,92,246,0.42)] transition-all duration-300 p-7 flex flex-col group"
-            >
-              {/* Header */}
-              <div className="flex items-start justify-between mb-5">
-                <div>
-                  <div className="[font-family:'JetBrains_Mono',monospace] text-[#7c3aed] text-xs mb-1.5 tracking-widest">
-                    Project {p.num}
-                  </div>
-                  <h3 className="[font-family:'Chakra_Petch',sans-serif] text-2xl font-bold text-[#fafafa] leading-tight">
-                    {p.name}
-                  </h3>
-                  <div className="text-[#a78bfa] text-xs mt-1 [font-family:'JetBrains_Mono',monospace]">
-                    {p.subtitle}
-                  </div>
-                </div>
-                <div className="flex gap-1 ml-4">
-                  <a
-                    href={p.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 text-[#52525b] hover:text-[#a78bfa] transition-colors cursor-pointer"
-                    aria-label="Live demo"
-                  >
-                    <ExternalLink size={15} />
-                  </a>
-                  <a
-                    href={p.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 text-[#52525b] hover:text-[#a78bfa] transition-colors cursor-pointer"
-                    aria-label="GitHub repo"
-                  >
-                    <Github size={15} />
-                  </a>
-                </div>
-              </div>
-
-              <p className="text-[#a1a1aa] text-sm leading-relaxed mb-5">{p.description}</p>
-
-              <ul className="space-y-2.5 flex-1 mb-6">
-                {p.points.map((pt, i) => (
-                  <li key={i} className="flex gap-2.5 text-xs text-[#71717a] leading-relaxed">
-                    <span className="text-[#7c3aed] shrink-0 mt-0.5">▸</span>
-                    {pt}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Tech stack */}
-              <div className="flex flex-wrap gap-2 pt-5 border-t border-[rgba(139,92,246,0.08)]">
-                {p.stack.map((t) => (
-                  <SkillTag key={t} label={t} />
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── EDUCATION ─── */}
-      <section id="education" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
-        <SectionHeader num="04" title="Education" />
-        <div className="mt-14 bg-[#111115] border border-[rgba(139,92,246,0.12)] p-8 md:p-10">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <div className="flex items-center gap-2 mb-3">
-                <GraduationCap size={16} className="text-[#7c3aed]" />
-                <span className="[font-family:'JetBrains_Mono',monospace] text-[#7c3aed] text-xs tracking-widest uppercase">
-                  B.Tech · Computer Science Engineering
-                </span>
-              </div>
-              <h3 className="[font-family:'Chakra_Petch',sans-serif] text-2xl md:text-3xl font-bold text-[#fafafa] mb-2">
-                Bachelor of Technology
-              </h3>
-              <p className="text-[#a1a1aa] text-sm">Computer Science & Engineering</p>
-            </div>
-            <div className="md:text-right shrink-0">
-              <div className="[font-family:'JetBrains_Mono',monospace] text-[#a78bfa] text-xs tracking-widest mb-2">
-                Sept 2022 – June 2026
-              </div>
-              <div className="[font-family:'Chakra_Petch',sans-serif] font-bold">
-                <span className="text-5xl text-[#fafafa]">7.88</span>
-                <span className="text-[#7c3aed] text-xl"> / 10.0</span>
-              </div>
-              <div className="text-[#52525b] text-xs [font-family:'JetBrains_Mono',monospace] mt-1">
-                CGPA
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── ACHIEVEMENTS ─── */}
-      <section id="achievements" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
-        <SectionHeader num="05" title="Achievements" />
-        <div className="grid sm:grid-cols-2 gap-4 mt-14">
-          {ACHIEVEMENTS.map(({ icon: Icon, title, desc }) => (
-            <div
-              key={title}
-              className="bg-[#111115] border border-[rgba(139,92,246,0.12)] hover:border-[rgba(139,92,246,0.38)] transition-all duration-300 p-6"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 flex items-center justify-center bg-[rgba(139,92,246,0.1)] shrink-0">
-                  <Icon size={16} className="text-[#a78bfa]" />
-                </div>
-                <h4 className="[font-family:'Chakra_Petch',sans-serif] font-semibold text-[#e4e4e7] text-sm tracking-wide">
-                  {title}
-                </h4>
-              </div>
-              <p className="text-[#a1a1aa] text-sm leading-relaxed">{desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── CONTACT ─── */}
-      <section id="contact" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
-        <SectionHeader num="06" title="Contact" />
-        <div className="mt-14">
-          <div className="max-w-2xl">
-            <p className="text-[#a1a1aa] text-base leading-relaxed mb-10">
-              I am currently open to new opportunities — full-time roles, internships, or interesting collaborations.
-              Whether you have a role in mind or just want to connect, my inbox is always open.
-            </p>
-
-            <a
-              href={`mailto:${EMAIL}`}
-              onClick={copyEmail}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-[#7c3aed] hover:bg-[#6d28d9] text-white transition-colors text-sm [font-family:'JetBrains_Mono',monospace] mb-12 cursor-pointer"
-            >
-              <Mail size={16} />
-              {EMAIL}
-            </a>
-
-            <div className="flex flex-wrap gap-6">
-              <a
-                href="https://github.com/ayushsareen793"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#52525b] hover:text-[#a78bfa] transition-colors text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
-              >
-                <Github size={16} /> GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ayushsareen0808"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#52525b] hover:text-[#a78bfa] transition-colors text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
-              >
-                <Linkedin size={16} /> LinkedIn
-              </a>
-              <a
-                href="tel:+918368158779"
-                className="flex items-center gap-2 text-[#52525b] hover:text-[#a78bfa] transition-colors text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
-              >
-                <Phone size={16} /> +91-8368158779
-              </a>
-              <span className="flex items-center gap-2 text-[#52525b] text-sm [font-family:'JetBrains_Mono',monospace]">
-                <MapPin size={16} /> New Delhi, India
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="relative z-10 border-t border-[rgba(139,92,246,0.1)] py-8 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="[font-family:'Chakra_Petch',sans-serif] text-[#a78bfa] font-bold tracking-widest text-sm">
-            AS
-          </span>
-          <p className="text-[#3f3f46] text-xs [font-family:'JetBrains_Mono',monospace]">
-            © 2025 Ayush Sareen · Designed & Built with React + Tailwind CSS
-          </p>
-          <div className="flex gap-4">
-            <a
-              href="https://github.com/ayushsareen793"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors cursor-pointer"
-            >
-              <Github size={15} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/ayushsareen0808"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors cursor-pointer"
-            >
-              <Linkedin size={15} />
-            </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              onClick={copyEmail}
-              className="text-[#3f3f46] hover:text-[#7c3aed] transition-colors cursor-pointer"
-            >
-              <Mail size={15} />
-            </a>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-}
+            <div className="absolute left-0 top-1.5 w-[9px] h-[9px] rounded-full bg-[#7c3aed] shadow-[0_0_10px_rgba(124
