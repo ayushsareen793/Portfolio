@@ -294,7 +294,7 @@ export default function App() {
               <Github size={15} /> GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/ayush-sareen"
+              href="https://www.linkedin.com/in/ayush-sareen-792283255"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
@@ -559,7 +559,7 @@ export default function App() {
               <Github size={15} /> GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/ayush-sareen"
+              href="https://www.linkedin.com/in/ayush-sareen-792283255"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
