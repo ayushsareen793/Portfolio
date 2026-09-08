@@ -66,7 +66,7 @@ const PROJECTS = [
       "Deployed and iterated via Vercel CI/CD pipeline connected to GitHub",
     ],
     live: "https://travel-log-project-psi.vercel.app",
-    repo: "https://github.com/ayushsareen793",
+    repo: "https://github.com/ayushsareen793/Travel-Log-Project",
   },
   {
     num: "02",
@@ -82,7 +82,7 @@ const PROJECTS = [
       "Validated all REST API endpoints with Postman before each deployment",
     ],
     live: "https://get-me-acoffee-a-creator-funding-pl.vercel.app",
-    repo: "https://github.com/ayushsareen793",
+    repo: "https://github.com/ayushsareen793/GetMeACOFFEE-A-Creator-Funding-Platform",
   },
 ];
 
@@ -294,7 +294,7 @@ export default function App() {
               <Github size={15} /> GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/ayushsareen0808"
+              href="https://www.linkedin.com/in/ayush-sareen"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
@@ -559,7 +559,7 @@ export default function App() {
               <Github size={15} /> GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/ayushsareen0808"
+              href="https://www.linkedin.com/in/ayush-sareen"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
