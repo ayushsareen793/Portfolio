@@ -18,9 +18,23 @@ import {
   GraduationCap,
   Check,
   FileText,
+  Award,
 } from "lucide-react";
 
-const NAV_LINKS = ["About", "Skills", "Experience", "Projects", "Education", "Achievements", "Contact", "Resume"];
+const NAV_LINKS = ["About", "Skills", "Experience", "Projects", "Education", "Certifications", "Achievements", "Contact", "Resume"];
+
+const CERTIFICATIONS = [
+  {
+    title: "Foundations of Prompt Engineering",
+    issuer: "AWS Training & Certification",
+    date: "August 2026",
+  },
+  {
+    title: "The Complete Full-Stack Web Development Bootcamp",
+    issuer: "Udemy · Dr. Angela Yu (61.5 hours)",
+    date: "July 2025",
+  },
+];
 
 const SKILL_CATEGORIES = [
   {
@@ -510,9 +524,35 @@ export default function App() {
         </div>
       </section>
 
+      {/* ─── CERTIFICATIONS ─── */}
+      <section id="certifications" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
+        <SectionHeader num="05" title="Certifications" />
+        <div className="grid sm:grid-cols-2 gap-4 mt-14">
+          {CERTIFICATIONS.map(({ title, issuer, date }) => (
+            <div
+              key={title}
+              className="bg-[#111115] border border-[rgba(139,92,246,0.12)] hover:border-[rgba(139,92,246,0.38)] transition-all duration-300 p-6 flex gap-4"
+            >
+              <div className="w-8 h-8 flex items-center justify-center bg-[rgba(139,92,246,0.1)] shrink-0">
+                <Award size={15} className="text-[#a78bfa]" />
+              </div>
+              <div>
+                <h3 className="[font-family:'Chakra_Petch',sans-serif] font-semibold text-sm text-[#e4e4e7] mb-1.5">
+                  {title}
+                </h3>
+                <div className="text-[#a78bfa] text-xs [font-family:'JetBrains_Mono',monospace] mb-1">
+                  {issuer}
+                </div>
+                <div className="text-[#71717a] text-xs [font-family:'JetBrains_Mono',monospace]">{date}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ─── ACHIEVEMENTS ─── */}
       <section id="achievements" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
-        <SectionHeader num="05" title="Achievements" />
+        <SectionHeader num="06" title="Achievements" />
         <div className="grid sm:grid-cols-2 gap-4 mt-14">
           {ACHIEVEMENTS.map(({ icon: Icon, title, desc }) => (
             <div
@@ -533,7 +573,7 @@ export default function App() {
 
       {/* ─── CONTACT ─── */}
       <section id="contact" className="relative z-10 py-24 px-6 max-w-6xl mx-auto">
-        <SectionHeader num="06" title="Contact" />
+        <SectionHeader num="07" title="Contact" />
         <div className="mt-14 text-center max-w-xl mx-auto">
           <p className="text-[#a1a1aa] text-base leading-relaxed mb-8">
             Open to full-time opportunities and collaborations. Feel free to reach out — I usually reply within a
