@@ -45,12 +45,12 @@ const SKILL_CATEGORIES = [
   {
     icon: Server,
     label: "Front-End",
-    skills: ["HTML5", "CSS3", "React.js", "Redux", "Context API", "Next.js", "Tailwind CSS"],
+    skills: ["HTML5", "CSS3", "React.js", "Redux", "Next.js", "Tailwind CSS"],
   },
   {
     icon: Database,
     label: "Back-End",
-    skills: ["Node.js", "Express.js", "RESTful APIs", "OAuth Authentication", "JWT", "Payment Integration"],
+    skills: ["Node.js", "Express.js", "RESTful APIs", "OAuth/JWT Authentication", "Payment Integration"],
   },
   {
     icon: Database,
@@ -60,7 +60,7 @@ const SKILL_CATEGORIES = [
   {
     icon: Wrench,
     label: "Tools & Platforms",
-    skills: ["Git", "GitHub", "npm", "VS Code", "Postman", "Vercel", "Docker"],
+    skills: ["Git", "GitHub (Version Control)", "npm", "VS Code", "Postman (API Testing)", "Vercel", "Docker"],
   },
 ];
 
@@ -69,14 +69,13 @@ const PROJECTS = [
     num: "01",
     name: "Travel-Log",
     subtitle: "Travel Journal & Discovery Platform",
-    stack: ["Next.js", "NextAuth", "MongoDB", "Cloudinary", "Mapbox", "REST APIs"],
+    stack: ["Next.js", "NextAuth", "MongoDB", "Cloudinary", "REST APIs"],
     description:
       "A full-stack travel journaling platform for publishing geotagged travel logs with cover photos, hidden gems, and tips, plus discovery via an interactive Mapbox map, search, and category filters.",
     points: [
-      "Architected full-stack platform using Next.js App Router and MongoDB for geotagged travel logs and discovery",
-      "Implemented NextAuth OAuth 2.0 (GitHub/Google) with auto user provisioning and direct browser-to-Cloudinary uploads",
-      "Designed a MongoDB indexing strategy (createdAt + .lean()) that cut API response time 41% (887ms → 527ms), eliminating collection scans across 8,000+ records",
-      "Verified all endpoints via Postman during development; shipped via Vercel CI/CD with SSR for SEO-friendly URLs and zero-downtime deploys",
+      "Architected a full-stack, responsive travel journaling platform for publishing geotagged travel logs with cover photos, hidden gems, and tips, with discovery via an interactive Mapbox map, search, and category filters, scoring 90+ on Lighthouse.",
+      "Implemented NextAuth OAuth 2.0 (GitHub/Google) with automatic user provisioning; integrated Cloudinary for direct browser-to-cloud image uploads and built REST API routes, verified via Postman.",
+      "Designed a MongoDB indexing strategy using a createdAt index and Mongoose .lean() that cut API response time by 41% (887ms → 527ms), eliminating collection scans across 8,000+ records; shipped via Vercel CI/CD with SSR for SEO-friendly URLs.",
     ],
     live: "https://travel-log-project-psi.vercel.app",
     repo: "https://github.com/ayushsareen793/Travel-Log-Project",
@@ -85,14 +84,13 @@ const PROJECTS = [
     num: "02",
     name: "GetMeACoffee",
     subtitle: "Creator Funding Platform",
-    stack: ["Next.js", "NextAuth", "MongoDB", "Razorpay", "REST APIs"],
+    stack: ["Next.js", "NextAuth", "MongoDB", "Razorpay", "Server Actions"],
     description:
       "A full-stack creator monetization platform with personalized /username pages and real-time Razorpay payments, backed by a MongoDB schema for users, profiles, and transactions.",
     points: [
-      "Built personalized /username creator pages (Tailwind dark-theme UI) with real-time Razorpay payments and live UI feedback",
-      "Engineered server-side Razorpay webhook signature verification to block spoofed/replayed payments, plus collision-safe username generation",
-      "Shipped a live top-10 supporters leaderboard with names and messages",
-      "Optimized profile lookups with compound MongoDB indexing, cutting lookup time 81% (27ms → 5ms) across 5,000+ records; tested the full payment flow across 10+ Razorpay sandbox transactions and deployed via Vercel CI/CD",
+      "Built a full-stack creator monetization platform with personalized /username pages (responsive Tailwind dark-theme UI, Lighthouse 90+) and real-time Razorpay payments, backed by a MongoDB schema for users, profiles, and transactions.",
+      "Engineered server-side Razorpay webhook signature verification to block spoofed/replayed payments, plus collision-safe username generation and a live top-10 supporters leaderboard with names/messages.",
+      "Optimized profile lookups with compound MongoDB indexing, cutting lookup time by 81% (27ms → 5ms) across 5,000+ records; tested full payment flow across 10+ Razorpay sandbox transactions and deployed via Vercel CI/CD.",
     ],
     live: "https://get-me-acoffee-a-creator-funding-pl.vercel.app",
     repo: "https://github.com/ayushsareen793/GetMeACOFFEE-A-Creator-Funding-Platform",
@@ -103,7 +101,7 @@ const ACHIEVEMENTS = [
   {
     icon: Terminal,
     title: "Competitive Programming",
-    desc: "Solved 200+ algorithmic problems across LeetCode, GeeksforGeeks, and takeUforward, strengthening core data structure and problem-solving skills.",
+    desc: "Solved 200+ algorithmic problems in Java across LeetCode, GeeksforGeeks, and takeUforward, strengthening core data structures and problem-solving skills.",
   },
   {
     icon: BookOpen,
@@ -113,11 +111,12 @@ const ACHIEVEMENTS = [
   {
     icon: Trophy,
     title: "Hackathon Achievements",
-    desc: "Secured a Top 40 rank at HackWithDelhi 2024; advanced to the online round of Code Veda 2025 among 6,000+ participants; also competed in Smart India Hackathon 2025 and Troubleshoot Ideathon 2025.",
+    desc: "Secured a Top 40 rank at HackWithDelhi (2024); advanced to the online round of Code Veda 2025, competing among 6,000+ participants; also competed in Smart India Hackathon and Troubleshoot Ideathon 2025.",
   },
 ];
 
 const EMAIL = "ayushsareen793@gmail.com";
+const LINKEDIN_URL = "https://www.linkedin.com/in/ayushsareen0808";
 
 function SectionHeader({ num, title }: { num: string; title: string }) {
   return (
@@ -282,8 +281,8 @@ export default function App() {
           <p className="text-[#a1a1aa] text-base md:text-lg max-w-2xl leading-relaxed mb-10">
             Full-Stack Developer skilled in the MERN and Next.js ecosystem, with two live applications
             featuring real payment integration and secure multi-provider authentication (OAuth, JWT).
-            Proficient in RESTful API design, MongoDB, and shipping via CI/CD, with hands-on debugging of
-            real issues in session management and App Router architecture.
+            Proficient in RESTful API design, MongoDB, and shipping via CI/CD, with hands-on experience
+            debugging session management and App Router issues.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -303,7 +302,7 @@ export default function App() {
               <Github size={15} /> GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/ayush-sareen-792283255"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
@@ -350,9 +349,9 @@ export default function App() {
             </p>
             <p className="text-[#a1a1aa] leading-relaxed text-base">
               My work spans end-to-end: RESTful API architecture, secure multi-provider authentication
-              (JWT, OAuth 2.0, NextAuth), real payment integrations, and CI/CD pipelines on Vercel. I've
-              shipped two live applications and hands-on debugged real issues in session management and
-              App Router architecture.
+              (JWT, OAuth 2.0, NextAuth), real payment integrations, and CI/CD pipelines on Vercel.
+              I've shipped two live applications and have hands-on experience debugging session
+              management and App Router issues.
             </p>
             <p className="text-[#a1a1aa] leading-relaxed text-base">
               B.Tech (CSE) graduate actively seeking full-time opportunities where I can build impactful
@@ -421,7 +420,7 @@ export default function App() {
             <div className="absolute left-0 top-1.5 w-[9px] h-[9px] rounded-full bg-[#7c3aed] shadow-[0_0_10px_rgba(124,58,237,0.6)]" />
 
             <div className="[font-family:'JetBrains_Mono',monospace] text-xs text-[#7c3aed] mb-2 tracking-wide">
-              Jul – Aug 2025
+              July 2025 – August 2025
             </div>
             <h3 className="[font-family:'Chakra_Petch',sans-serif] text-xl font-semibold text-[#fafafa] mb-1">
               Web Development Intern
@@ -429,9 +428,9 @@ export default function App() {
             <div className="text-[#a78bfa] text-sm mb-4">SkillCraft Technology · Remote</div>
             <ul className="space-y-3">
               {[
-                "Built 3 vanilla JS (ES6+) apps: a stopwatch with event-driven DOM manipulation and state management, a landing page with responsive design (CSS3 Flexbox, Grid, media queries), and a quiz app with real-time scoring and localStorage persistence.",
-                "Wrote modular, reusable JavaScript functions and responsive CSS architectures that directly translated into faster React component design and cleaner Next.js page structures.",
-                "Debugged DOM state edge cases and timing bugs without framework abstractions, solidifying the underlying mechanics now applied to React state logic and Next.js App Router session handling.",
+                "Developed 3 projects from scratch in vanilla JavaScript (ES6+), HTML5 and CSS3: a stopwatch driven by user events, a quiz app that scores answers in real time, and a responsive landing page that adapts to different screen sizes.",
+                "Wrote modular, reusable functions using event-driven DOM manipulation and state management for the stopwatch timer and quiz real-time scoring, with localStorage persistence.",
+                "Styled the landing page with CSS Grid, Flexbox and media queries; debugged DOM state edge cases and timing bugs without framework abstractions, now applied to React state logic and Next.js App Router session handling.",
               ].map((point, i) => (
                 <li key={i} className="flex gap-3 text-[#a1a1aa] text-sm leading-relaxed">
                   <span className="text-[#7c3aed] mt-1">▸</span>
@@ -596,7 +595,7 @@ export default function App() {
               <Github size={15} /> GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/ayush-sareen-792283255"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 border border-[rgba(139,92,246,0.35)] hover:border-[#a78bfa] text-[#a78bfa] hover:text-[#c4b5fd] transition-all text-sm [font-family:'JetBrains_Mono',monospace] cursor-pointer"
