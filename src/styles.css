@@ -37,21 +37,21 @@
 
 :root {
   --radius: 1rem;
-  --background: #100C0A;
-  --foreground: #E8DED5;
-  --card: #1B1410;
+  --background: #111111;
+  --foreground: #F3EEE3;
+  --card: color-mix(in oklab, var(--background) 94%, var(--foreground));
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
-  --primary: #674532;
-  --primary-foreground: var(--foreground);
-  --secondary: #291E17;
+  --primary: #F3EEE3;
+  --primary-foreground: #111111;
+  --secondary: color-mix(in oklab, var(--background) 88%, var(--foreground));
   --secondary-foreground: var(--foreground);
   --muted: var(--card);
-  --muted-foreground: #B9A89A;
-  --accent: #B38B6D;
+  --muted-foreground: color-mix(in oklab, var(--foreground) 65%, var(--background));
+  --accent: #F3EEE3;
   --accent-foreground: var(--background);
-  --hot: #D1B399;
+  --hot: #F3EEE3;
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
   --border: color-mix(in oklab, var(--foreground) 10%, transparent);
@@ -317,3 +317,4 @@
 @media (max-width: 359px) { .editorial-name { font-size: 94px; } .contact-editorial h2 { font-size: 64px; } .nav-caption { display: none; } }
 @media (prefers-reduced-motion: no-preference) { .editorial-name { animation: editorial-entry .7s ease-out both; } }
 @keyframes editorial-entry { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
