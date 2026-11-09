@@ -22,7 +22,6 @@ export const Route = createFileRoute("/")({
 const EMAIL = "ayushsareen793@gmail.com";
 const GITHUB = "https://github.com/ayushsareen793";
 const LINKEDIN = "https://www.linkedin.com/in/ayushsareen0808";
-const LEETCODE = "https://leetcode.com/u/AYUSH_SAREEN12/";
 const NAV = ["Work", "About", "Experience", "Contact"];
 
 
@@ -62,7 +61,7 @@ const PROJECTS = [
 ];
 
 const ACHIEVEMENTS = [
-  { icon: Terminal, title: "200+ Problems Solved", desc: "Algorithmic problems in Java across LeetCode, GeeksforGeeks and takeUforward." },
+  { icon: Terminal, title: "200+ Problems Solved", desc: "Algorithmic problems in Java across GeeksforGeeks and takeUforward." },
   { icon: BookOpen, title: "Published Researcher", desc: "First author of “CampusConnect” in IJCSL, Vol. 4, Issue 2, 2026 (ISSN 3048-944X)." },
   { icon: Trophy, title: "Hackathons", desc: "Top 40 at HackWithDelhi 2024; Code Veda 2025 online round among 6,000+; SIH & Troubleshoot Ideathon 2025." },
 ];
@@ -116,7 +115,7 @@ function Index() {
 
       <Chapter number="04" title="BEYOND THE CODE" id="education"><div className="credentials-layout"><div><span className="folio">EDUCATION</span><h3 className="font-display credential-title">B.TECH / COMPUTER<br/>SCIENCE ENGINEERING</h3><p>Greater Noida Institute of Technology (GGSIPU)</p><p className="text-muted-foreground mt-2">Greater Noida · Sept 2022 – June 2026</p><div className="certificates">{CERTS.map(c => <div key={c.title}><span className="folio">{c.date}</span><h4>{c.title}</h4><p className="text-muted-foreground">{c.issuer}</p></div>)}</div></div><div className="achievements">{ACHIEVEMENTS.map(({icon: Icon,title,desc}) => <div key={title}><Icon size={19} className="text-accent"/><div><h3 className="font-display">{title}</h3><p>{desc}</p></div></div>)}</div></div></Chapter>
 
-      <section id="contact" className="contact-editorial scroll-mt-20"><div className="contact-top"><span className="folio">05 / NEXT CHAPTER</span><span className="availability"><span/>OPEN TO OPPORTUNITIES</span></div><h2 className="font-display">LET’S MAKE<br/><a href={`mailto:${EMAIL}`} className="contact-title-link">IT HAPPEN.<ArrowUpRight/></a></h2><div className="contact-bottom"><div><a href={`mailto:${EMAIL}`} className="email-link">{EMAIL}</a><Button variant="ghost" size="icon" onClick={copyEmail} title="Copy email address" aria-label="Copy email address">{copied ? <Check/> : <Copy/>}</Button><span role="status" className="copy-status">{copied ? 'Copied' : copyError ? 'Please use the email link' : ''}</span></div><div className="social-links"><Button asChild variant="link"><a href={GITHUB} target="_blank" rel="noopener noreferrer">GitHub <Github/></a></Button><Button asChild variant="link"><a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn <Linkedin/></a></Button><Button asChild variant="link"><a href={LEETCODE} target="_blank" rel="noopener noreferrer">LeetCode <Code2/></a></Button>{/* Phone link removed so the number is not public. Old code: <Button asChild variant="link"><a href="tel:+918368158779" title="+91-8368158779">Call <Phone/></a></Button> */}</div></div></section>
+      <section id="contact" className="contact-editorial scroll-mt-20"><div className="contact-top"><span className="folio">05 / NEXT CHAPTER</span><span className="availability"><span/>OPEN TO OPPORTUNITIES</span></div><h2 className="font-display">LET’S MAKE<br/><a href={`mailto:${EMAIL}`} className="contact-title-link">IT HAPPEN.<ArrowUpRight/></a></h2><div className="contact-bottom"><div><a href={`mailto:${EMAIL}`} className="email-link">{EMAIL}</a><Button variant="ghost" size="icon" onClick={copyEmail} title="Copy email address" aria-label="Copy email address">{copied ? <Check/> : <Copy/>}</Button><span role="status" className="copy-status">{copied ? 'Copied' : copyError ? 'Please use the email link' : ''}</span></div><div className="social-links"><Button asChild variant="link"><a href={GITHUB} target="_blank" rel="noopener noreferrer">GitHub <Github/></a></Button><Button asChild variant="link"><a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn <Linkedin/></a></Button>{/* Phone link removed so the number is not public. Old code: <Button asChild variant="link"><a href="tel:+918368158779" title="+91-8368158779">Call <Phone/></a></Button> */}</div></div></section>
     </main>
     <footer className="editorial-footer"><span>© {new Date().getFullYear()} AYUSH SAREEN</span><span>NEW DELHI, INDIA</span><Button asChild variant="link"><a href="#top">Back to top <ArrowUp/></a></Button></footer>
   </div>;
