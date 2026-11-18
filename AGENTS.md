@@ -12,5 +12,7 @@
 - Keep palette validation and presets in a browser-safe module; apply visitor previews through semantic CSS variables so all portfolio surfaces update together.
 - The portfolio uses the global semantic colour tokens as its fixed theme; do not mount the optional palette preview interface.
 - Present portfolio content as editorial spreads and ruled ledgers with real project screenshots; keep the existing single-page section anchors and reusable design-system controls so navigation and theme behavior remain consistent.
+- Scope opening styles to the signature masthead and opening navigation classes so opening redesigns do not change the project spreads or later sections.
 - AI palette recommendations use a public, validated TanStack server function with request-local Lovable AI Gateway Responses helpers; keep keys and prompts server-only.
 - Set the external Nitro target to Vercel while retaining the Lovable configuration wrapper so hosted previews keep their managed target.
+- Keep portfolio motion in a browser-only enhancement hook with observer cleanup and reduced-motion support; content must remain accessible when animations are unavailable.
